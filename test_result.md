@@ -101,3 +101,89 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Test the Novarch early access subscription API endpoints"
+
+backend:
+  - task: "POST /api/subscribe endpoint with valid email"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ PASS: Valid email subscription works correctly. Returns success=true and correct message 'You're on the list. We'll reach out when it's ready.' Tested with john.doe@example.com"
+
+  - task: "POST /api/subscribe with invalid email format validation"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ PASS: Invalid email format correctly rejected with 422 validation error. Pydantic EmailStr validation working properly. Tested with 'not-an-email'"
+
+  - task: "POST /api/subscribe duplicate email handling"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ PASS: Duplicate email handled gracefully. Returns success=true with same message for existing emails. No errors thrown."
+
+  - task: "GET /api/subscribers/count endpoint"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ PASS: Subscriber count endpoint works correctly. Returns JSON with 'count' field containing integer value. Verified count increases with new subscriptions."
+
+  - task: "API root endpoint accessibility"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ PASS: API root endpoint (/api/) accessible and returns correct response with message 'Novarch API'"
+
+frontend:
+  # No frontend testing performed as per instructions
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "POST /api/subscribe endpoint with valid email"
+    - "POST /api/subscribe with invalid email format validation"
+    - "POST /api/subscribe duplicate email handling"
+    - "GET /api/subscribers/count endpoint"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+    - agent: "testing"
+      message: "Completed comprehensive testing of Novarch early access subscription API. All 5 test scenarios passed successfully: 1) Valid email subscription, 2) Invalid email format validation (422 error), 3) Duplicate email handling, 4) Subscriber count endpoint, 5) API root accessibility. Backend URL https://daily-companion-23.preview.emergentagent.com/api is working correctly. MongoDB integration functional. Brevo integration gracefully handles missing API key. Edge cases tested including empty emails and missing fields - all properly validated."
