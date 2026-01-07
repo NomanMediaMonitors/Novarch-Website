@@ -26,7 +26,7 @@ const NovarchLanding = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#08090d] text-[#e8eaef] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#0c0d10] text-[#f8f9fb] overflow-x-hidden">
       {/* Film grain overlay */}
       <FilmGrain />
       
