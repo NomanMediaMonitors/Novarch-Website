@@ -60,10 +60,26 @@ export const differenceData = {
 
 export const foundersData = {
   title: "Built deliberately.",
-  body: "Novarch is built by a small founding team focused on discipline, systems, and long-term thinking. We're building in public, testing carefully, and improving with real feedback—not hype.",
+  description: "Novarch is built by a small founding team focused on discipline, systems, and long-term thinking. We're building in public, testing carefully, and improving with real feedback—not hype.",
   founders: [
-    { name: "Mesum", role: "Founder", location: "Germany" },
-    { name: "Melissa", role: "Co-Founder", location: "" }
+    { 
+      name: "Mesum", 
+      role: "Founder",
+      bio: "Building Novarch as a long-term personal system focused on discipline, clarity, and execution. Based in Germany. Background in Computer Science, currently pursuing a Master's in Research in Computer and Systems Engineering. Focused on thoughtful product design, systems thinking, and building in public.",
+      social: {
+        instagram: "https://www.instagram.com/__mesum_/",
+        linkedin: "https://www.linkedin.com/in/mesum-abbas-aa38a519a/",
+        github: "https://github.com/MesumAbbas51214"
+      }
+    },
+    { 
+      name: "Melissa", 
+      role: "Co-Founder",
+      bio: "Co-founder at Novarch. Focused on shaping the product experience and long-term direction.",
+      social: {
+        instagram: "https://www.instagram.com/melissamehrle"
+      }
+    }
   ]
 };
 
@@ -75,5 +91,10 @@ export const earlyAccessData = {
 
 export const footerData = {
   copyright: "© Novarch",
-  links: ["Privacy", "Terms", "Contact"]
+  links: ["Privacy", "Terms", "Contact"],
+  social: {
+    novarch: {
+      instagram: "https://www.instagram.com/_novarch.ai?"
+    }
+  }
 };
