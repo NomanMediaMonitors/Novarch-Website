@@ -5,7 +5,7 @@ const Header = ({ onEarlyAccess }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      setScrolled(window.scrollY > 80);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -22,29 +22,29 @@ const Header = ({ onEarlyAccess }) => {
     <header 
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ${
         scrolled 
-          ? 'bg-[#0a0b0f]/60 backdrop-blur-2xl' 
+          ? 'bg-[#0c0d10]/85 backdrop-blur-2xl' 
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-[1800px] mx-auto px-8 md:px-16 lg:px-24">
-        <nav className="flex items-center justify-between h-24 md:h-28">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20">
+        <nav className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-lg md:text-xl font-extralight tracking-[0.3em] text-[#e8eaef]/90 hover:text-white transition-colors duration-500 uppercase"
+            className="text-base md:text-lg font-normal tracking-[0.25em] text-[#f0f2f5] hover:text-white transition-colors duration-500 uppercase"
           >
             Novarch
           </button>
 
           {/* Navigation */}
-          <div className="hidden md:flex items-center gap-16">
-            {['Philosophy', 'System', 'Team'].map((item) => (
+          <div className="hidden md:flex items-center gap-12">
+            {[{name: 'Philosophy', id: 'philosophy'}, {name: 'System', id: 'system'}, {name: 'Team', id: 'team'}].map((item) => (
               <button 
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-[13px] tracking-[0.2em] text-[#8a90a0]/70 hover:text-[#e8eaef] transition-all duration-500 uppercase font-light"
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-[13px] tracking-[0.15em] text-[#9099a8] hover:text-[#f0f2f5] transition-all duration-400 uppercase font-light"
               >
-                {item}
+                {item.name}
               </button>
             ))}
           </div>
@@ -52,7 +52,7 @@ const Header = ({ onEarlyAccess }) => {
           {/* CTA */}
           <button 
             onClick={onEarlyAccess}
-            className="text-[13px] tracking-[0.15em] text-[#e8eaef]/80 hover:text-white border border-[#3a3f50]/50 hover:border-[#5a6070]/50 px-6 py-3 transition-all duration-500 uppercase font-light hover:bg-white/[0.03]"
+            className="text-[12px] md:text-[13px] tracking-[0.12em] text-[#f0f2f5] border border-[#3a3f4d]/60 hover:border-[#5a6070]/70 px-5 md:px-6 py-2.5 transition-all duration-400 uppercase font-light hover:bg-white/[0.04]"
           >
             Early Access
           </button>
