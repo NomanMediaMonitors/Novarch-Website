@@ -2,11 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Space Grotesk - elegant, modern */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap');
-
-/* Import Inter for body text */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap');
+/* Import Inter - clean, modern, readable */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 
 body {
     margin: 0;
@@ -15,13 +12,13 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #08090d;
-    color: #e8eaef;
+    background-color: #0c0d10;
+    color: #f8f9fb;
     letter-spacing: 0.01em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 code {
@@ -31,25 +28,25 @@ code {
 
 @layer base {
   :root {
-        --background: 220 20% 4%;
-        --foreground: 220 15% 92%;
-        --card: 220 20% 6%;
-        --card-foreground: 220 15% 92%;
-        --popover: 220 20% 6%;
-        --popover-foreground: 220 15% 92%;
-        --primary: 220 15% 92%;
-        --primary-foreground: 220 20% 4%;
-        --secondary: 220 15% 12%;
-        --secondary-foreground: 220 15% 92%;
-        --muted: 220 15% 12%;
-        --muted-foreground: 220 10% 50%;
-        --accent: 220 15% 12%;
-        --accent-foreground: 220 15% 92%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 220 15% 92%;
-        --border: 220 15% 15%;
-        --input: 220 15% 15%;
-        --ring: 220 10% 50%;
+        --background: 220 15% 5%;
+        --foreground: 220 10% 97%;
+        --card: 220 15% 6%;
+        --card-foreground: 220 10% 97%;
+        --popover: 220 15% 6%;
+        --popover-foreground: 220 10% 97%;
+        --primary: 220 10% 97%;
+        --primary-foreground: 220 15% 5%;
+        --secondary: 220 12% 12%;
+        --secondary-foreground: 220 10% 97%;
+        --muted: 220 12% 12%;
+        --muted-foreground: 220 8% 55%;
+        --accent: 220 12% 12%;
+        --accent-foreground: 220 10% 97%;
+        --destructive: 0 55% 45%;
+        --destructive-foreground: 220 10% 97%;
+        --border: 220 12% 18%;
+        --input: 220 12% 18%;
+        --ring: 220 8% 55%;
         --radius: 0rem;
     }
 }
