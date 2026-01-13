@@ -65,6 +65,7 @@ export const foundersData = {
     { 
       name: "Mesum", 
       role: "Founder",
+      photo: "https://customer-assets.emergentagent.com/job_daily-companion-23/artifacts/sdl64mmk_mesum%20ai.jpg",
       bio: "Building Novarch as a long-term personal system focused on discipline, clarity, and execution. Based in Germany. Background in Computer Science, currently pursuing a Master's in Research in Computer and Systems Engineering. Focused on thoughtful product design, systems thinking, and building in public.",
       social: {
         instagram: "https://www.instagram.com/__mesum_/",
@@ -75,6 +76,7 @@ export const foundersData = {
     { 
       name: "Melissa", 
       role: "Co-Founder",
+      photo: null,
       bio: "Co-founder at Novarch. Focused on shaping the product experience and long-term direction.",
       social: {
         instagram: "https://www.instagram.com/melissamehrle"
