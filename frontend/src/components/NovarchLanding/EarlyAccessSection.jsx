@@ -87,6 +87,13 @@ const EarlyAccessSection = () => {
             {earlyAccessData.body}
           </p>
           
+          {/* Phase clarity */}
+          {earlyAccessData.phase && (
+            <p className="text-[14px] text-[#6a7080] font-light italic">
+              {earlyAccessData.phase}
+            </p>
+          )}
+          
           {/* Form */}
           <div className="pt-6">
             {status !== 'success' ? (
