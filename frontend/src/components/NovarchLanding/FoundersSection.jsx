@@ -47,6 +47,17 @@ const FoundersSection = () => {
               key={index}
               className="space-y-5"
             >
+              {/* Photo */}
+              {founder.photo && (
+                <div className="w-20 h-20 rounded-full overflow-hidden grayscale">
+                  <img 
+                    src={founder.photo} 
+                    alt={founder.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              
               {/* Name and Role */}
               <div className="space-y-1">
                 <h4 className="text-xl md:text-2xl font-light text-[#f8f9fb] tracking-wide">
