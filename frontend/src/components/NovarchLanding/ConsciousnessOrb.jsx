@@ -1,10 +1,9 @@
 import React from 'react';
 
 /**
- * ConsciousnessOrb - The primary visual symbol of Novarch
- * Represents: inner core, awareness, self, consciousness
- * NOT planetary - no rings, orbits, or space metaphors
- * Soft internal glow with grounded presence
+ * Novarch Orb - Primary visual symbol
+ * ORB = inner awareness / core
+ * ARCH = supportive structure
  */
 const ConsciousnessOrb = ({ className = '', size = 'large' }) => {
   const sizeClasses = {
