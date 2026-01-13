@@ -86,6 +86,7 @@ export const foundersData = {
 export const earlyAccessData = {
   title: "Early, intentional, evolving.",
   body: "Novarch is currently in early testing. Expect imperfections. If you care about systems that improve over time, you're welcome here.",
+  phase: "Current focus: early research & testing with thesis students in Europe.",
   cta: "Join Early Access"
 };
 
