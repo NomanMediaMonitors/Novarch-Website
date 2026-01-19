@@ -50,7 +50,7 @@ const NovarchLanding = () => {
       {/* Chat toggle button */}
       <button
         onClick={() => setIsChatOpen(true)}
-        className="fixed bottom-6 right-6 z-40 px-5 py-3 bg-[#1a1d24] border border-[#2a2f3d] text-[#a8aeb8] hover:text-[#f8f9fb] hover:border-[#3a3f4d] transition-all duration-300 text-[13px] tracking-wide font-light"
+        className="fixed bottom-6 left-6 z-40 px-5 py-3 bg-[#1a1d24] border border-[#2a2f3d] text-[#a8aeb8] hover:text-[#f8f9fb] hover:border-[#3a3f4d] transition-all duration-300 text-[13px] tracking-wide font-light"
       >
         Think with Novarch
       </button>
