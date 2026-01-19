@@ -70,6 +70,21 @@ class SubscriberInDB(BaseModel):
     status: str = "active"
 
 
+# Chat Models
+class ChatMessage(BaseModel):
+    role: str  # "user" or "assistant"
+    content: str
+
+class ChatRequest(BaseModel):
+    session_id: str
+    message: str
+    history: Optional[List[ChatMessage]] = []
+
+class ChatResponse(BaseModel):
+    response: str
+    session_id: str
+
+
 # Brevo Service
 class BrevoService:
     def __init__(self):
