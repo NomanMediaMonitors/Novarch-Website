@@ -27,6 +27,9 @@ BREVO_API_KEY = os.environ.get('BREVO_API_KEY', '')
 BREVO_LIST_NAME = os.environ.get('BREVO_LIST_NAME', 'Novarch Early Access')
 BREVO_API_URL = "https://api.brevo.com/v3"
 
+# LLM configuration
+EMERGENT_LLM_KEY = os.environ.get('EMERGENT_LLM_KEY', '')
+
 # Create the main app without a prefix
 app = FastAPI()
 
