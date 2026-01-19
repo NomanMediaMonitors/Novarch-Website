@@ -268,6 +268,80 @@ async def get_subscriber_count():
     return {"count": count}
 
 
+@api_router.post("/chat", response_model=ChatResponse)
+async def chat_with_novarch(request: ChatRequest):
+    """
+    Chat with Novarch thinking companion.
+    Uses GPT-4o with the Novarch system prompt.
+    """
+    if not EMERGENT_LLM_KEY:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Chat service not configured"
+        )
+    
+    try:
+        # Initialize chat with Novarch system prompt
+        chat = LlmChat(
+            api_key=EMERGENT_LLM_KEY,
+            session_id=request.session_id,
+            system_message=NOVARCH_SYSTEM_PROMPT
+        ).with_model("openai", "gpt-4o")
+        
+        # Add conversation history to context
+        for msg in request.history:
+            if msg.role == "user":
+                chat.add_user_message(msg.content)
+            elif msg.role == "assistant":
+                chat.add_assistant_message(msg.content)
+        
+        # Send the current message
+        user_message = UserMessage(text=request.message)
+        response = await chat.send_message(user_message)
+        
+        # Store conversation in MongoDB for continuity
+        conversation_record = {
+            "session_id": request.session_id,
+            "user_message": request.message,
+            "assistant_response": response,
+            "timestamp": datetime.utcnow()
+        }
+        await db.conversations.insert_one(conversation_record)
+        
+        logger.info(f"Chat session {request.session_id}: message processed")
+        
+        return ChatResponse(
+            response=response,
+            session_id=request.session_id
+        )
+        
+    except Exception as e:
+        logger.error(f"Chat error for session {request.session_id}: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Unable to process your message. Please try again."
+        )
+
+
+@api_router.get("/chat/history/{session_id}")
+async def get_chat_history(session_id: str, limit: int = 50):
+    """Get conversation history for a session"""
+    try:
+        history = await db.conversations.find(
+            {"session_id": session_id}
+        ).sort("timestamp", 1).limit(limit).to_list(limit)
+        
+        messages = []
+        for record in history:
+            messages.append({"role": "user", "content": record["user_message"]})
+            messages.append({"role": "assistant", "content": record["assistant_response"]})
+        
+        return {"session_id": session_id, "messages": messages}
+    except Exception as e:
+        logger.error(f"Error fetching history for {session_id}: {str(e)}")
+        return {"session_id": session_id, "messages": []}
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
