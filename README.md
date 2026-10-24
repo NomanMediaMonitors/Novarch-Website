@@ -1,1 +1,41 @@
-# Here are your Instructions
+# NOVARCH 3-Tier Enterprise Full-Stack Ecosystem Monorepo
+
+Welcome to the **NOVARCH** Monorepo. This repository contains the unified codebase for the NOVARCH platform, structured into three primary sub-applications.
+
+## 📁 Repository Structure
+
+```
+NOVARCH/
+├── frontend/       # Next.js 15 App Router Frontend Application
+├── backend/        # Node.js + Express + TypeScript Backend API
+├── dashboard/      # Vite + React Admin Dashboard Application
+├── package.json    # Root Monorepo configuration & scripts
+└── README.md       # Project documentation
+```
+
+---
+
+## 🚀 Quick Start
+
+### Root Scripts
+
+You can run individual services or all build scripts directly from the repository root:
+
+- **Run Frontend**: `npm run dev:frontend`
+- **Run Backend**: `npm run dev:backend`
+- **Run Dashboard**: `npm run dev:dashboard`
+- **Build All Projects**: `npm run build:all`
+
+---
+
+## 🛠️ Tech Stack Overview
+
+- **Frontend (`frontend/`)**: Next.js 15, React 19, TypeScript, Tailwind CSS, Framer Motion
+- **Backend (`backend/`)**: Node.js, Express, TypeScript, CORS, Dotenv
+- **Dashboard (`dashboard/`)**: Vite, React 19, TypeScript, Lucide Icons, Tailwind CSS
+
+---
+
+## 🔒 Environment Configuration
+
+Each sub-application contains its own configuration and `.env.example` file. Copy `.env.example` to `.env` in the respective directory to set up local environment variables.

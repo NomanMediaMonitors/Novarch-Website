@@ -1,0 +1,15 @@
+{
+  "name": "novarch-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NOVARCH 3-Tier Enterprise Full-Stack Ecosystem Monorepo",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:dashboard": "npm --prefix dashboard run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:backend": "npm --prefix backend run build",
+    "build:dashboard": "npm --prefix dashboard run build",
+    "build:all": "npm run build:frontend && npm run build:backend && npm run build:dashboard"
+  }
+}
