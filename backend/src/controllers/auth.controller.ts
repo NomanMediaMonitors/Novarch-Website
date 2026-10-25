@@ -10,7 +10,7 @@ import { SessionModel } from '../models/session.model.js';
 import { credentialVersion, validateSession } from '../services/session.service.js';
 import { auditService } from '../services/audit.service.js';
 
-const credentials = z.object({ email: z.string().trim().email().max(254).toLowerCase(), password: z.string().min(1).max(72).refine(value => Buffer.byteLength(value, 'utf8') <= 72) }).strict();
+const credentials = z.object({ email: z.string().trim().pipe(z.email().max(254).toLowerCase()), password: z.string().min(1).max(72).refine(value => Buffer.byteLength(value, 'utf8') <= 72) }).strict();
 const hashFormat = /^\$2[aby]\$(1[2-6])\$[./A-Za-z0-9]{53}$/;
 export const authController = {
   async login(req: Request, res: Response): Promise<void> {

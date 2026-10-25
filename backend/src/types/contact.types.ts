@@ -33,7 +33,7 @@ export interface ContactInquiry {
 // status/source cannot be set by clients. Price fields are overwritten from the server catalog when a known package is sent.
 export const CreatePublicContactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').max(100),
-  email: z.string().email('Invalid email address').toLowerCase(),
+  email: z.email('Invalid email address').toLowerCase(),
   phone: z.string().max(50).optional(),
   countryCode: z.string().max(10).optional(),
   company: z.string().max(100).optional(),

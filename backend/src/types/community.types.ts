@@ -64,7 +64,7 @@ const optionalUrl = z
       try { const url = new URL(val); return ['http:', 'https:'].includes(url.protocol) && !url.username && !url.password; }
       catch { return false; }
     },
-    { message: 'Must be a valid web URL starting with http:// or https://' }
+    { error: 'Must be a valid web URL starting with http:// or https://' }
   );
 
 // Referral schema for UTM and attribution parameters
@@ -82,7 +82,7 @@ export const ReferralSchema = z
 export const CreatePublicCommunitySchema = z.object({
   applicationType: z.literal('community').default('community').optional(),
   fullName: z.string().trim().min(2, 'Full name must be at least 2 characters').max(100),
-  email: z.string().trim().email('Invalid email address').toLowerCase(),
+  email: z.string().trim().pipe(z.email('Invalid email address').toLowerCase()),
   country: z.string().trim().max(100).optional(),
   city: z.string().trim().max(100).optional(),
   contactNumber: z.string().trim().max(50).optional(),
@@ -102,7 +102,7 @@ export const CreatePublicCommunitySchema = z.object({
 export const CreateWinterArcPublicSchema = z.object({
   applicationType: z.literal('winter-arc').default('winter-arc'),
   fullName: z.string().trim().min(2, 'Full name must be at least 2 characters').max(100),
-  email: z.string().trim().email('Invalid email address').toLowerCase(),
+  email: z.string().trim().pipe(z.email('Invalid email address').toLowerCase()),
   city: z.string().trim().min(1, 'City is required').max(100),
   organization: z.string().trim().min(1, 'Business, project, or community is required').max(150),
   whatYouDo: z.string().trim().min(2, 'Please tell us what you do').max(2000),

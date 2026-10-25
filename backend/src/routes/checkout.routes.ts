@@ -13,7 +13,7 @@ const CreateCheckoutSessionSchema = z.object({
   packageId: z.string().trim().max(200).optional(),
   packageName: z.string().trim().max(200).optional(),
   userName: z.string().trim().min(2).max(100),
-  userEmail: z.string().trim().email().toLowerCase(),
+  userEmail: z.string().trim().pipe(z.email().toLowerCase()),
   userPhone: z.string().trim().max(50).optional(),
   userCompany: z.string().trim().max(100).optional(),
   userNotes: z.string().trim().max(500).optional(),
